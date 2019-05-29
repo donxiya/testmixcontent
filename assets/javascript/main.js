@@ -33,7 +33,8 @@ $(document).ready(function () {
                 format: "jsonp",
                 field_list: "name,deck,original_release_date,image",
                 resources: "game",
-            },
+            }
+            
         })
         .then(function (response) {
             if (response.results != null) {
@@ -108,6 +109,7 @@ $(document).ready(function () {
                 }
             };
         });
+        return false;
     }
     $("#game-query").on("click", function () {
         $("#game-container").empty();
