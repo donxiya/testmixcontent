@@ -116,6 +116,7 @@ $(document).ready(function () {
             searchGame(a);
             newSearch();
         };
+        return false;
     });
 });
 
