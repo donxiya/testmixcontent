@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var search = null;
+    //var search = null;
     var newSearch = function () {
         //event.preventDefault();
         search = $("#game-search").val().trim();
