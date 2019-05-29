@@ -22,7 +22,7 @@ $(document).ready(function () {
                 query: term,
                 format: "jsonp",
                 //we can change searched item here
-                //field_list: "name, deck",
+                field_list: "name deck",
                 //field_list: "deck",
                 //field_list: "original_release_date",
                 //field_list: "image",
