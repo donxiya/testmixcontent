@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var search = null;
-    var newSearch = function (event) {
+    var newSearch = function () {
         event.preventDefault();
         search = $("#game-search").val().trim();
         $("#game-search").val("");
