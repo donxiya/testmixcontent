@@ -88,8 +88,8 @@ $(document).ready(function () {
                     var info2 = $("<th>");
                     info2.attr("scope", "row");
                     var image = $("<img>")
-                    image.attr("src", response.results[i].image.original_url);
-                    image.css("max-width", "100%");
+                    //image.attr("src", response.results[i].image.original_url);
+                    //image.css("max-width", "100%");
                     info2.append(image);
                     tr3.append(info1);
                     tr3.append(info2);
