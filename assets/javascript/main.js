@@ -16,10 +16,10 @@ $(document).ready(function () {
         //need to change url
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
-        //var queryURL = "https://www.cracking.com.ar/redir/redir.php?URL=http://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
+        var queryURL = "https://www.cracking.com.ar/redir/redir.php?URL=http://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
         // console.log(queryURL);
         // console.log("test");
-
+ 
         $.ajax({
             url: "https://api.giantbomb.com/search/",
             type: 'GET',
@@ -30,7 +30,7 @@ $(document).ready(function () {
                 query: term,
                 format: "jsonp",
                 field_list: "name,deck,original_release_date,image",
-                resources: "game",
+                resources: "game/",
             }
             
         })
