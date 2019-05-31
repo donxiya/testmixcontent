@@ -26,8 +26,8 @@ $(document).ready(function () {
             type: 'GET',
             // url: "https://api.giantbomb.com/search/",
             // type: 'GET',
-            // dataType: "jsonp",
-            // jsonp: "json_callback",
+            dataType: "jsonp",
+            jsonp: "json_callback",
             // data: {
             //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
             //     query: term,
