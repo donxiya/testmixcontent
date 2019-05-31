@@ -14,6 +14,32 @@ $(document).ready(function () {
     // }
     var searchGame = function (term) {
 
+        var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
+        var queryURL = "https://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
+        //var queryURL = "https://www.giantbomb.com/api/search?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&query=war&resources=game/"
+        // console.log(queryURL);
+        // console.log("test");
+        var marker;
+        $.ajax({
+            //url: queryURL,
+            //type: 'GET',
+            url: "https://api.giantbomb.com/search/",
+            //type: 'GET',
+            dataType: "jsonp",
+            jsonp: "json_callback",
+            crossDomain: true,
+            cors:true,
+            data: {
+                api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
+                query: term,
+                format: "jsonp",
+                field_list: "name,deck,original_release_date,image",
+                resources: "game/",
+            },
+            success: function (data) {
+                marker = JSON.stringify(this.url);
+                console.log(marker);
+            },
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
 
