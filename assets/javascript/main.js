@@ -13,13 +13,13 @@ $(document).ready(function () {
     //     console.log("You are connected with a secure connection.")
     // }
     var searchGame = function (term) {
-        //need to change url
+
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
-        var queryURL = "https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=" + key + "&query=" + term + "&resources=game/";
+        var queryURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search/?api_key=" + key + "&query=" + term;
         //https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query="metroid prime"&resources=game/
-        console.log("https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query=" + term + "&resources=game/")
-        //var queryURL = "https://www.giantbomb.com/api/search?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&query=war&resources=game/"
+        //console.log("https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&resources=game&query=" + term + "/")
+        //var queryURL = "https://cors-anywhere.herokuapp.com/http://api.giantbomb.com/search/?json_callback=jQuery34008407562230407146_1559274249784&api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&query="+term+"&format=jsonp&resources=game&_=1559274249785";
         // console.log(queryURL);
         // console.log("test");
         var marker;
@@ -32,7 +32,7 @@ $(document).ready(function () {
             //jsonp: "json_callback",
             //crossDomain: true,
             //cors:true,
-            headers:{
+            headers: {
                 "Access-Control-Allow-Origin": "*",
                 "x-requested-with": "xhr",
                 //"format": "json",
@@ -44,25 +44,26 @@ $(document).ready(function () {
             //     field_list: "name,deck,original_release_date,image",
             //     resources: "game/",
             // },
-            success: function (data) {
+            success: function () {
                 marker = JSON.stringify(this.url);
+                console.log("target"+queryURL);
                 console.log(marker);
             },
 
 
         })
-        // ;$.ajax({
-        //     url: marker + "/",
-        //     type: 'GET',
-        //     dataType: "jsonp",
-        //     //jsonp: "json_callback",
-        //     //async: false,
-        //     crossDomain: true,
-        //     success: function (data) {
-        //         marker = JSON.stringify(this.url);
-        //         console.log(this.url);
-        //     },
-        // })
+            // ;$.ajax({
+            //     url: marker + "/",
+            //     type: 'GET',
+            //     dataType: "jsonp",
+            //     //jsonp: "json_callback",
+            //     //async: false,
+            //     crossDomain: true,
+            //     success: function (data) {
+            //         marker = JSON.stringify(this.url);
+            //         console.log(this.url);
+            //     },
+            // })
             .then(function (response) {
                 if (response.results != null) {
                     //console.log(response.results);
