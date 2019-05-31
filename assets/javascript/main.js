@@ -3,43 +3,60 @@ $(document).ready(function () {
         search = $("#game-search").val().trim();
         $("#game-search").val("");
     };
-    if (window.location.protocol == "http:") {
-        console.log("You are not connected with a secure connection.")
-        console.log("Reloading the page to a Secure Connection...")
-        window.location = document.URL.replace("http://", "https://");
-    }
+    // if (window.location.protocol == "http:") {
+    //     console.log("You are not connected with a secure connection.")
+    //     console.log("Reloading the page to a Secure Connection...")
+    //     window.location = document.URL.replace("http://", "https://");
+    // }
 
-    if (window.location.protocol == "https:") {
-        console.log("You are connected with a secure connection.")
-    }
+    // if (window.location.protocol == "https:") {
+    //     console.log("You are connected with a secure connection.")
+    // }
     var searchGame = function (term) {
         //need to change url
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
-        //var queryURL = "https://www.cracking.com.ar/redir/redir.php?URL=http://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
-        var queryURL = "https://www.giantbomb.com/api/search/?_=1559260593671&api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&format=jsonp&json_callback=jQuery34005124868965796869_1559260593670&query=bioshock&resources=game/"
+        var queryURL = "https://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
+        //var queryURL = "https://www.giantbomb.com/api/search?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&query=war&resources=game/"
         // console.log(queryURL);
         // console.log("test");
-
+        var marker;
         $.ajax({
-            url: queryURL,
-            type: 'GET',
-            // url: "https://api.giantbomb.com/search/",
-            // type: 'GET',
+            //url: queryURL,
+            //type: 'GET',
+            url: "https://api.giantbomb.com/search/",
+            //type: 'GET',
             dataType: "jsonp",
             jsonp: "json_callback",
-            // data: {
-            //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
-            //     query: term,
-            //     format: "jsonp",
-            //     field_list: "name,deck,original_release_date,image",
-            //     resources: "game",
-            // }
+            data: {
+                api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
+                query: term,
+                format: "jsonp",
+                field_list: "name,deck,original_release_date,image",
+                resources: "game",
+            },
+            success: function (data) {
+                marker = JSON.stringify(this.url);
+                console.log(marker);
+            },
+
 
         })
+        // ;$.ajax({
+        //     url: marker + "/",
+        //     type: 'GET',
+        //     dataType: "jsonp",
+        //     //jsonp: "json_callback",
+        //     //async: false,
+        //     crossDomain: true,
+        //     success: function (data) {
+        //         marker = JSON.stringify(this.url);
+        //         console.log(this.url);
+        //     },
+        // })
             .then(function (response) {
                 if (response.results != null) {
-                    console.log(response.results);
+                    //console.log(response.results);
                     for (var i = 0; i < response.results.length; i++) {
                         //this div containts everything
                         //
@@ -110,6 +127,11 @@ $(document).ready(function () {
                     }
                 };
             });
+
+
+
+
+
         return false;
     }
     $("#game-query").on("click", function () {
