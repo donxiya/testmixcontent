@@ -16,60 +16,6 @@ $(document).ready(function () {
 
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
-<<<<<<< HEAD
-        var queryURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search/?api_key=" + key + "&query=" + term;
-        //https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query="metroid prime"&resources=game/
-        //console.log("https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&resources=game&query=" + term + "/")
-        //var queryURL = "https://cors-anywhere.herokuapp.com/http://api.giantbomb.com/search/?json_callback=jQuery34008407562230407146_1559274249784&api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&query="+term+"&format=jsonp&resources=game&_=1559274249785";
-=======
-        var queryURL = "https://www.giantbomb.com/api/search?api_key=" + key + "&format=json&query=" + term + "&resources=game";
-        //var queryURL = "https://www.giantbomb.com/api/search?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&query=war&resources=game/"
->>>>>>> parent of e2cb170... mc fix
-        // console.log(queryURL);
-        // console.log("test");
-        var marker;
-        $.ajax({
-            //url: queryURL,
-            //type: 'GET',
-<<<<<<< HEAD
-            dataType: "json",
-            //jsonp: "json_callback",
-            //crossDomain: true,
-            //cors:true,
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "x-requested-with": "xhr",
-                //"format": "json",
-            },
-            // data: {
-            //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
-            //     query: term,
-            //     format: "jsonp",
-            //     field_list: "name,deck,original_release_date,image",
-            //     resources: "game/",
-            // },
-            success: function () {
-=======
-            url: "https://api.giantbomb.com/search/",
-            //type: 'GET',
-            dataType: "jsonp",
-            jsonp: "json_callback",
-            crossDomain: true,
-            cors:true,
-            data: {
-                api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
-                query: term,
-                format: "jsonp",
-                field_list: "name,deck,original_release_date,image",
-                resources: "game/",
-            },
-            success: function (data) {
->>>>>>> parent of e2cb170... mc fix
-                marker = JSON.stringify(this.url);
-                console.log("target"+queryURL);
-                console.log(marker);
-            },
-
 
         })
             // ;$.ajax({
