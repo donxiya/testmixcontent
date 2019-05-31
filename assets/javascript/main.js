@@ -28,6 +28,8 @@ $(document).ready(function () {
             //type: 'GET',
             dataType: "jsonp",
             jsonp: "json_callback",
+            crossDomain: true,
+            cors:true,
             data: {
                 api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
                 query: term,
