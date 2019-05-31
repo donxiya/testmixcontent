@@ -33,7 +33,7 @@ $(document).ready(function () {
                 query: term,
                 format: "jsonp",
                 field_list: "name,deck,original_release_date,image",
-                resources: "game",
+                resources: "game/",
             },
             success: function (data) {
                 marker = JSON.stringify(this.url);
