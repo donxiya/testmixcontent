@@ -13,7 +13,6 @@ $(document).ready(function () {
     //     console.log("You are connected with a secure connection.")
     // }
     var searchGame = function (term) {
-        //need to change url
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
         var queryURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search/?api_key=" + key + "&format=json&query=" + term + "&resources=game";
@@ -25,18 +24,20 @@ $(document).ready(function () {
         // console.log("test");
         var marker;
         $.ajax({
-            url: queryURL,
-            type: 'GET',
-            //url: "https://api.giantbomb.com/search/",
+            //url: queryURL,
             //type: 'GET',
-            dataType: "json",
-            //jsonp: "json_callback",
-            //crossDomain: true,
-            //cors:true,
-            headers:{
-                "Access-Control-Allow-Origin": "*",
-                "x-requested-with": "xhr",
-                //"format": "json",
+            url: "https://api.giantbomb.com/search/",
+            //type: 'GET',
+            dataType: "jsonp",
+            jsonp: "json_callback",
+            crossDomain: true,
+            cors:true,
+            data: {
+                api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
+                query: term,
+                format: "jsonp",
+                field_list: "name,deck,original_release_date,image",
+                resources: "game/",
             },
             // data: {
             //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
