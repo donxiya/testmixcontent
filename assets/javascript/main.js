@@ -3,15 +3,7 @@ $(document).ready(function () {
         search = $("#game-search").val().trim();
         $("#game-search").val("");
     };
-    // if (window.location.protocol == "http:") {
-    //     console.log("You are not connected with a secure connection.")
-    //     console.log("Reloading the page to a Secure Connection...")
-    //     window.location = document.URL.replace("http://", "https://");
-    // }
 
-    // if (window.location.protocol == "https:") {
-    //     console.log("You are connected with a secure connection.")
-    // }
     var searchGame = function (term) {
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
@@ -26,24 +18,12 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             type: 'GET',
-            //url: "https://api.giantbomb.com/search/",
-            //type: 'GET',
             dataType: "json",
-            //jsonp: "json_callback",
-            //crossDomain: true,
-            //cors:true,
             headers:{
                 "Access-Control-Allow-Origin": "*",
                 "x-requested-with": "xhr",
                 //"format": "json",
             },
-            // data: {
-            //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
-            //     query: term,
-            //     format: "jsonp",
-            //     field_list: "name,deck,original_release_date,image",
-            //     resources: "game/",
-            // },
             success: function (response) {
                 marker = JSON.stringify(this.url);
                 console.log("AJAX Success: "+marker);
