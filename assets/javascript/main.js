@@ -16,9 +16,10 @@ $(document).ready(function () {
         //need to change url
 
         var key = "52e79fca4d325c1ee085a289f1703202d6089c8e";
-        var queryURL = "https://cors-anywhere.herokuapp.com/http://www.giantbomb.com/api/search/?api_key=" + key + "&query=" + term + "&resources=game/";
+        var queryURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search/?api_key=" + key + "&format=json&query=" + term + "&resources=game";
         //https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query="metroid prime"&resources=game/
-        console.log("https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query=" + term + "&resources=game/")
+        console.log("TARGET: "+"https://www.giantbomb.com/api/search/?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&format=json&query=" + term + "&resources=game");
+        console.log("With PROXY: "+queryURL);
         //var queryURL = "https://www.giantbomb.com/api/search?api_key=52e79fca4d325c1ee085a289f1703202d6089c8e&field_list=name%2Cdeck%2Coriginal_release_date%2Cimage&query=war&resources=game/"
         // console.log(queryURL);
         // console.log("test");
@@ -44,26 +45,12 @@ $(document).ready(function () {
             //     field_list: "name,deck,original_release_date,image",
             //     resources: "game/",
             // },
-            success: function (data) {
+            success: function (response) {
                 marker = JSON.stringify(this.url);
-                console.log(marker);
+                console.log("AJAX Success: "+marker);
             },
-
-
-        })
-        // ;$.ajax({
-        //     url: marker + "/",
-        //     type: 'GET',
-        //     dataType: "jsonp",
-        //     //jsonp: "json_callback",
-        //     //async: false,
-        //     crossDomain: true,
-        //     success: function (data) {
-        //         marker = JSON.stringify(this.url);
-        //         console.log(this.url);
-        //     },
-        // })
-            .then(function (response) {
+        }).then(function (response) {
+                console.log("AJAX call ");
                 if (response.results != null) {
                     //console.log(response.results);
                     for (var i = 0; i < response.results.length; i++) {
