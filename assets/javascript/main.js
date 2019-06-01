@@ -24,20 +24,18 @@ $(document).ready(function () {
         // console.log("test");
         var marker;
         $.ajax({
-            //url: queryURL,
+            url: queryURL,
+            type: 'GET',
+            //url: "https://api.giantbomb.com/search/",
             //type: 'GET',
-            url: "https://api.giantbomb.com/search/",
-            //type: 'GET',
-            dataType: "jsonp",
-            jsonp: "json_callback",
-            crossDomain: true,
-            cors:true,
-            data: {
-                api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
-                query: term,
-                format: "jsonp",
-                field_list: "name,deck,original_release_date,image",
-                resources: "game/",
+            dataType: "json",
+            //jsonp: "json_callback",
+            //crossDomain: true,
+            //cors:true,
+            headers:{
+                "Access-Control-Allow-Origin": "*",
+                "x-requested-with": "xhr",
+                //"format": "json",
             },
             // data: {
             //     api_key: "52e79fca4d325c1ee085a289f1703202d6089c8e",
